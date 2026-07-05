@@ -1,0 +1,59 @@
+{
+  "irVersion": "1.0",
+  "project": "omnimeet-core",
+  "repository": "https://github.com/plexusone/omnimeet-core",
+  "versioning": "semver",
+  "commitConvention": "conventional",
+  "maintainers": ["plexusone", "johncwang@gmail.com"],
+  "releases": [
+    {
+      "version": "v0.1.0",
+      "date": "2026-07-04",
+      "highlights": [
+        { "description": "Initial release with unified abstractions for real-time collaboration platforms" },
+        { "description": "Provider-agnostic design supporting LiveKit with Daily and Zoom planned" },
+        { "description": "Agent skill interfaces for OmniAgent integration" },
+        { "description": "Voice integration types for STT/TTS via OmniVoice" }
+      ],
+      "added": [
+        { "description": "Core types: `Meeting`, `Participant`, `Track`, `Event`, `Token`", "commit": "94cc476" },
+        { "description": "Error types for meeting operations", "commit": "94cc476" },
+        { "description": "Provider registry for runtime provider selection", "commit": "94cc476" },
+        { "description": "Meeting state and lifecycle management", "commit": "d0a0d78" },
+        { "description": "Participant info with roles (human, agent, bot)", "commit": "d0a0d78" },
+        { "description": "Audio/video track types with mute state", "commit": "d0a0d78" },
+        { "description": "Real-time events (joins, leaves, track publications, active speakers)", "commit": "d0a0d78" },
+        { "description": "Authentication token generation", "commit": "d0a0d78" },
+        { "description": "Recording and transcript types", "commit": "d0a0d78" },
+        { "description": "Voice agent types for STT/TTS integration", "commit": "d0a0d78" },
+        { "description": "`Provider` interface for backend implementations", "commit": "e17333d" },
+        { "description": "`Client` abstraction for provider clients", "commit": "e17333d" },
+        { "description": "`Agent` types for meeting agents", "commit": "e17333d" },
+        { "description": "`MeetingSkill` interface for OmniAgent", "commit": "6b96919" },
+        { "description": "`VoiceSkill` interface for voice-enabled agents", "commit": "6b96919" },
+        { "description": "Meeting skill implementation with meeting management tools", "commit": "9e10088" },
+        { "description": "Example applications: basic-agent, omniagent-integration", "commit": "2c7932c" }
+      ],
+      "documentation": [
+        { "description": "Getting started guide with installation and quickstart", "commit": "45b62e4" },
+        { "description": "API reference for all packages", "commit": "45b62e4" },
+        { "description": "Agent participation guide", "commit": "45b62e4" },
+        { "description": "Voice integration guide", "commit": "45b62e4" },
+        { "description": "Provider implementation guide", "commit": "45b62e4" },
+        { "description": "Architecture Decision Records (ADRs)", "commit": "45b62e4" },
+        { "description": "MkDocs site with Material theme", "commit": "45b62e4" },
+        { "description": "README with project overview and quick start", "commit": "510d80d" },
+        { "description": "v0.1.0 release notes", "commit": "510d80d" }
+      ],
+      "chore": [
+        { "description": "GitHub Actions CI workflows (build, lint, SAST)", "commit": "8462b4c" },
+        { "description": "golangci-lint configuration", "commit": "8462b4c" },
+        { "description": "MkDocs deploy workflow", "commit": "e644038" }
+      ],
+      "dependencies": [
+        { "description": "`github.com/plexusone/omniskill` v0.9.0+" },
+        { "description": "`github.com/plexusone/omnivoice-core` v0.15.0+" }
+      ]
+    }
+  ]
+}
