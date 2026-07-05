@@ -1,0 +1,92 @@
+site_name: OmniMeet Documentation
+site_description: Unified abstraction for real-time collaboration platforms
+site_author: PlexusOne
+site_url: https://plexusone.github.io/omnimeet-core/
+
+repo_name: plexusone/omnimeet-core
+repo_url: https://github.com/plexusone/omnimeet-core
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.copy
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Overview: getting-started/overview.md
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quickstart.md
+  - Guides:
+      - OmniAgent Integration: guides/omniagent-integration.md
+      - Provider Implementation: guides/provider-implementation.md
+      - Agent Participation: guides/agent-participation.md
+      - Voice Integration: guides/voice-integration.md
+      - Testing: guides/testing.md
+  - API Reference:
+      - Overview: api/overview.md
+      - Meeting: api/meeting.md
+      - Participant: api/participant.md
+      - Track: api/track.md
+      - Provider: api/provider.md
+      - Skill: api/skill.md
+      - Agent: api/agent.md
+      - Voice: api/voice.md
+  - Providers:
+      - LiveKit: providers/livekit.md
+      - Daily: providers/daily.md
+  - Architecture:
+      - ADR Index: adr/README.md
+      - Meeting Abstraction: adr/001-meeting-abstraction.md
+      - Provider Pattern: adr/002-provider-pattern.md
+      - LiveKit First: adr/003-livekit-first.md
+      - Daily Second: adr/004-daily-second.md
+      - Agent Participation: adr/005-agent-participation.md
+      - Event Model: adr/006-event-model.md
+      - OmniVoice Integration: adr/007-omnivoice-integration.md
+      - Frontend SDK: adr/008-frontend-sdk.md
+  - Roadmap: specs/ROADMAP.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/plexusone
