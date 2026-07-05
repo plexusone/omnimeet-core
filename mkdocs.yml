@@ -84,6 +84,8 @@ nav:
       - Event Model: adr/006-event-model.md
       - OmniVoice Integration: adr/007-omnivoice-integration.md
       - Frontend SDK: adr/008-frontend-sdk.md
+  - Releases:
+      - v0.1.0: releases/v0.1.0.md
   - Roadmap: specs/ROADMAP.md
 
 extra:
