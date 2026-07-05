@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Go 1.22 or later
+- Go 1.26 or later
 - A LiveKit server (local or cloud) for development
 - Optional: CGO for Opus audio encoding/decoding
 
