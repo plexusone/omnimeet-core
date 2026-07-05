@@ -76,6 +76,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to create meeting: %v", err)
 	}
+	//nolint:gosec // G706: values from internal API, not user input
 	log.Printf("Created meeting: %s", meeting.ID)
 
 	// Generate token for human participant
@@ -90,6 +91,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to create human token: %v", err)
 	}
+	//nolint:gosec // G706: values from internal API, not user input
 	log.Printf("Human join URL: %s", humanToken.JoinURL)
 
 	// Generate token for AI agent
@@ -170,6 +172,7 @@ func main() {
 
 	// Wait for participants
 	log.Println("Waiting for participants...")
+	//nolint:gosec // G706: values from internal API, not user input
 	log.Printf("Share this URL with participants: %s", humanToken.JoinURL)
 
 	// Process events until shutdown

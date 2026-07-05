@@ -180,7 +180,7 @@ func (v *VoiceAgentParticipant) Speak(ctx context.Context, text string) error {
 	// Resample to meeting audio format if needed (48kHz typical for WebRTC)
 	targetSampleRate := 48000
 	if sampleRate != targetSampleRate {
-		audio = resampleAudio(audio, sampleRate, targetSampleRate, 1)
+		audio = resampleAudio(audio, sampleRate, targetSampleRate)
 		sampleRate = targetSampleRate
 	}
 
@@ -208,7 +208,7 @@ func (v *VoiceAgentParticipant) SpeakStream(ctx context.Context, text string) er
 		// Resample if needed
 		audio := chunk.Audio
 		if v.ttsConfig.SampleRate != targetSampleRate {
-			audio = resampleAudio(chunk.Audio, v.ttsConfig.SampleRate, targetSampleRate, 1)
+			audio = resampleAudio(chunk.Audio, v.ttsConfig.SampleRate, targetSampleRate)
 		}
 
 		if err := v.participant.PublishAudio(ctx, provider.AudioFrame{
@@ -263,7 +263,7 @@ func (v *VoiceAgentParticipant) transcribeAudio(ctx context.Context, participant
 					// Resample to STT format if needed
 					audio := frame.Data
 					if frame.SampleRate != v.sttConfig.SampleRate {
-						audio = resampleAudio(frame.Data, frame.SampleRate, v.sttConfig.SampleRate, frame.Channels)
+						audio = resampleAudio(frame.Data, frame.SampleRate, v.sttConfig.SampleRate)
 					}
 					_, _ = writer.Write(audio)
 				}
@@ -306,7 +306,7 @@ func (v *VoiceAgentParticipant) transcribeAudio(ctx context.Context, participant
 				// Resample to STT format if needed
 				audio := frame.Data
 				if frame.SampleRate != v.sttConfig.SampleRate {
-					audio = resampleAudio(frame.Data, frame.SampleRate, v.sttConfig.SampleRate, frame.Channels)
+					audio = resampleAudio(frame.Data, frame.SampleRate, v.sttConfig.SampleRate)
 				}
 				audioBuffer = append(audioBuffer, audio...)
 			case <-ticker.C:
@@ -332,7 +332,7 @@ func (v *VoiceAgentParticipant) transcribeAudio(ctx context.Context, participant
 // resampleAudio resamples PCM16 audio from one sample rate to another.
 // This is a simple linear interpolation - production code should use
 // a proper resampling library like libsoxr.
-func resampleAudio(input []byte, fromRate, toRate, channels int) []byte {
+func resampleAudio(input []byte, fromRate, toRate int) []byte {
 	if fromRate == toRate {
 		return input
 	}
@@ -370,7 +370,7 @@ func ToSTTFormat(frame provider.AudioFrame, targetSampleRate int) ([]byte, stt.T
 
 	data := frame.Data
 	if frame.SampleRate != targetSampleRate {
-		data = resampleAudio(frame.Data, frame.SampleRate, targetSampleRate, frame.Channels)
+		data = resampleAudio(frame.Data, frame.SampleRate, targetSampleRate)
 	}
 
 	return data, config
@@ -382,7 +382,7 @@ func FromTTSResult(result *tts.SynthesisResult, targetSampleRate int) provider.A
 	sampleRate := result.SampleRate
 
 	if sampleRate != targetSampleRate {
-		audio = resampleAudio(audio, sampleRate, targetSampleRate, 1)
+		audio = resampleAudio(audio, sampleRate, targetSampleRate)
 		sampleRate = targetSampleRate
 	}
 
