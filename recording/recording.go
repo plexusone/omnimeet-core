@@ -82,7 +82,7 @@ type Options struct {
 type Layout string
 
 const (
-	LayoutGrid     Layout = "grid"
-	LayoutSpeaker  Layout = "speaker"
+	LayoutGrid       Layout = "grid"
+	LayoutSpeaker    Layout = "speaker"
 	LayoutSideBySide Layout = "side_by_side"
 )

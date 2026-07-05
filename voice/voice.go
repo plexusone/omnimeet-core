@@ -24,12 +24,12 @@ type TranscriptHandler func(participantID, participantName, text string, isFinal
 
 // VoiceAgentParticipant wraps AgentParticipant with OmniVoice integration.
 type VoiceAgentParticipant struct {
-	participant   provider.AgentParticipant
-	sttProvider   stt.Provider
-	ttsProvider   tts.Provider
-	sttConfig     stt.TranscriptionConfig
-	ttsConfig     tts.SynthesisConfig
-	onTranscript  TranscriptHandler
+	participant  provider.AgentParticipant
+	sttProvider  stt.Provider
+	ttsProvider  tts.Provider
+	sttConfig    stt.TranscriptionConfig
+	ttsConfig    tts.SynthesisConfig
+	onTranscript TranscriptHandler
 
 	// Active transcription streams per participant
 	streams map[string]context.CancelFunc

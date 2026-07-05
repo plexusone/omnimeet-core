@@ -45,10 +45,10 @@ type SkillConfig struct {
 
 // MeetingSession represents an active meeting session.
 type MeetingSession struct {
-	Meeting     *meeting.Meeting
-	Agent       provider.AgentParticipant
-	JoinedAt    time.Time
-	Transcript  []TranscriptEntry
+	Meeting      *meeting.Meeting
+	Agent        provider.AgentParticipant
+	JoinedAt     time.Time
+	Transcript   []TranscriptEntry
 	Participants []participant.Participant
 
 	mu sync.RWMutex

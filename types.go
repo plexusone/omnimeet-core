@@ -119,21 +119,21 @@ type (
 
 // Event type constants
 const (
-	EventMeetingCreated          = event.TypeMeetingCreated
-	EventMeetingStarted          = event.TypeMeetingStarted
-	EventMeetingEnded            = event.TypeMeetingEnded
-	EventParticipantJoined       = event.TypeParticipantJoined
-	EventParticipantLeft         = event.TypeParticipantLeft
-	EventParticipantUpdated      = event.TypeParticipantUpdated
-	EventTrackPublished          = event.TypeTrackPublished
-	EventTrackUnpublished        = event.TypeTrackUnpublished
-	EventTrackMuted              = event.TypeTrackMuted
-	EventTrackUnmuted            = event.TypeTrackUnmuted
-	EventActiveSpeakerChanged    = event.TypeActiveSpeakerChanged
-	EventRecordingStarted        = event.TypeRecordingStarted
-	EventRecordingStopped        = event.TypeRecordingStopped
-	EventTranscriptUpdated       = event.TypeTranscriptUpdated
-	EventDataMessageReceived     = event.TypeDataMessageReceived
+	EventMeetingCreated           = event.TypeMeetingCreated
+	EventMeetingStarted           = event.TypeMeetingStarted
+	EventMeetingEnded             = event.TypeMeetingEnded
+	EventParticipantJoined        = event.TypeParticipantJoined
+	EventParticipantLeft          = event.TypeParticipantLeft
+	EventParticipantUpdated       = event.TypeParticipantUpdated
+	EventTrackPublished           = event.TypeTrackPublished
+	EventTrackUnpublished         = event.TypeTrackUnpublished
+	EventTrackMuted               = event.TypeTrackMuted
+	EventTrackUnmuted             = event.TypeTrackUnmuted
+	EventActiveSpeakerChanged     = event.TypeActiveSpeakerChanged
+	EventRecordingStarted         = event.TypeRecordingStarted
+	EventRecordingStopped         = event.TypeRecordingStopped
+	EventTranscriptUpdated        = event.TypeTranscriptUpdated
+	EventDataMessageReceived      = event.TypeDataMessageReceived
 	EventConnectionQualityChanged = event.TypeConnectionQualityChanged
 )
 

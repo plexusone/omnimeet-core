@@ -128,14 +128,14 @@ type DataMessageData struct {
 
 // ConnectionQualityData contains data for connection quality events.
 type ConnectionQualityData struct {
-	Participant participant.Participant           `json:"participant"`
-	Quality     participant.ConnectionQuality     `json:"quality"`
-	Previous    participant.ConnectionQuality     `json:"previous,omitempty"`
+	Participant participant.Participant       `json:"participant"`
+	Quality     participant.ConnectionQuality `json:"quality"`
+	Previous    participant.ConnectionQuality `json:"previous,omitempty"`
 }
 
 // MeetingEndedData contains data for meeting ended events.
 type MeetingEndedData struct {
-	Reason          string        `json:"reason"`
-	Duration        time.Duration `json:"duration"`
-	ParticipantCount int          `json:"participant_count"`
+	Reason           string        `json:"reason"`
+	Duration         time.Duration `json:"duration"`
+	ParticipantCount int           `json:"participant_count"`
 }
