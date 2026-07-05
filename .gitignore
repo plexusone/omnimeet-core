@@ -1,0 +1,34 @@
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment files (may contain secrets)
+.envrc
+.env
+.env.*
+
+# Ideation and planning docs (local only)
+IDEATION_CHAT*.md
+
+# Build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+omniagent-meeting
+
+# Test artifacts
+*.test
+*.out
+coverage.txt
+coverage.html
+
+# Dependency directories
+vendor/
+
+# OS files
+.DS_Store
+Thumbs.db
