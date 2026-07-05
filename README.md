@@ -31,11 +31,11 @@ OmniMeet enables AI agents to participate in meetings as first-class participant
 
 ## Features
 
-- **Provider Agnostic** - Write code once, deploy on any supported platform
-- **Agent-First Design** - Built for AI agents, not retrofitted
-- **Voice Integration** - Seamless STT/TTS with [OmniVoice](https://github.com/plexusone/omnivoice)
-- **OmniAgent Skills** - Ready-to-use tools for meeting management
-- **Real-time Events** - Participant joins, track publications, active speakers
+- 🔌 **Provider Agnostic** - Write code once, deploy on any supported platform
+- 🤖 **Agent-First Design** - Built for AI agents, not retrofitted
+- 🎙️ **Voice Integration** - Seamless STT/TTS with [OmniVoice](https://github.com/plexusone/omnivoice)
+- 🛠️ **OmniAgent Skills** - Ready-to-use tools for meeting management
+- ⚡ **Real-time Events** - Participant joins, track publications, active speakers
 
 ## Installation
 

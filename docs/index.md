@@ -6,10 +6,10 @@ OmniMeet enables AI agents to participate in meetings as first-class participant
 
 ## Why OmniMeet?
 
-- **Provider Agnostic**: Write code once, deploy on any supported platform
-- **Agent-First Design**: Built for AI agents, not retrofitted
-- **Voice Integration**: Seamless STT/TTS with [OmniVoice](https://github.com/plexusone/omnivoice) - switch between Deepgram, OpenAI, ElevenLabs, and more
-- **OmniAgent Skills**: Ready-to-use tools for meeting management
+- 🔌 **Provider Agnostic**: Write code once, deploy on any supported platform
+- 🤖 **Agent-First Design**: Built for AI agents, not retrofitted
+- 🎙️ **Voice Integration**: Seamless STT/TTS with [OmniVoice](https://github.com/plexusone/omnivoice) - switch between Deepgram, OpenAI, ElevenLabs, and more
+- 🛠️ **OmniAgent Skills**: Ready-to-use tools for meeting management
 
 ## Quick Example
 
