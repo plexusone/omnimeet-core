@@ -4,11 +4,11 @@ go 1.26.4
 
 require (
 	github.com/plexusone/omniskill v0.10.0
-	github.com/plexusone/omnivoice-core v0.16.0
+	github.com/plexusone/omnivoice-core v0.16.1
 )
 
 require (
-	github.com/grokify/mogo v0.74.6 // indirect
-	golang.org/x/exp v0.0.0-20260718201538-764159d718ef // indirect
-	golang.org/x/text v0.40.0 // indirect
+	github.com/grokify/mogo v0.75.0 // indirect
+	golang.org/x/exp v0.0.0-20261007192929-f45ad48fbe92 // indirect
+	golang.org/x/text v0.42.0 // indirect
 )
