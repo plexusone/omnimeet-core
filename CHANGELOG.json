@@ -7,6 +7,43 @@
   "maintainers": ["plexusone", "johncwang@gmail.com"],
   "releases": [
     {
+      "version": "v0.2.0",
+      "date": "2026-10-27",
+      "highlights": [
+        { "description": "Attend Zoom, Google Meet, and Teams meetings hosted by others by phone dial-in from their invitation" },
+        { "description": "Attendee session interfaces shared by dial-in and future browser and SDK connectors" }
+      ],
+      "added": [
+        { "description": "`attendee` package: `Joiner`, `Session`, optional audio, recorder, and participant interfaces, `Capabilities`, and session states", "commit": "2821b6d" },
+        { "description": "`dialin` package: dial-in number selection and keypad sequences for Zoom, Google Meet, and Teams", "commit": "6cea6be" },
+        { "description": "`invite` package: parse Zoom, Google Meet, and Teams invitations and `.ics` files", "commit": "489fe65" },
+        { "description": "`dialin.Joiner`: join meetings by phone through an omnivoice-core voice gateway in audio mode", "commit": "12831bb" },
+        { "description": "`dialin.WithKeyDuration` joiner option", "commit": "8d0790e" },
+        { "description": "`dialin/dialintest` package: simulated meetings with platform phone menus for tests", "commit": "6e1c9f7" },
+        { "description": "`examples/dialin`: join a simulated meeting from an invite, record it, and leave", "commit": "a25cb93" }
+      ],
+      "fixed": [
+        { "description": "`MeetingSkill` implements `Version`, required by omniskill's `Skill` interface", "commit": "be386f7" }
+      ],
+      "tests": [
+        { "description": "Invite parser tests against Zoom, Google Meet, Teams, and `.ics` fixtures", "commit": "489fe65" },
+        { "description": "Joiner tests for dialing, session states, audio, leaving, and errors", "commit": "12831bb" },
+        { "description": "End-to-end tests joining each invite fixture through simulated phone menus", "commit": "6e1c9f7" },
+        { "description": "Check generated dial strings with `callsystem.ValidateSendDigits`", "commit": "fb4fe5d" }
+      ],
+      "documentation": [
+        { "description": "ADR-009: dial-in first for external meetings", "commit": "e8bdc37" },
+        { "description": "Initiative specs for external meeting attendance", "commit": "b27d81b" },
+        { "description": "External meeting attendance phases in the roadmap", "commit": "b0e4f3d" },
+        { "description": "README section on joining meetings with the dial-in joiner", "commit": "187470d" },
+        { "description": "v0.2.0 release notes at `docs/releases/v0.2.0.md`" }
+      ],
+      "dependencies": [
+        { "description": "Update `github.com/plexusone/omnivoice-core` from v0.15.0 to v0.18.1", "commit": "ebb2f62" },
+        { "description": "Update `github.com/plexusone/omniskill` from v0.10.0 to v0.12.1", "commit": "9fce298" }
+      ]
+    },
+    {
       "version": "v0.1.0",
       "date": "2026-07-04",
       "highlights": [
