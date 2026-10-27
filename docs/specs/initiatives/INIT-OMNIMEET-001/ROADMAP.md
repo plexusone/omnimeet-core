@@ -9,24 +9,30 @@ Commits implementing an item carry `Refs: RMI-<REPOSLUG>-<NNN>`.
 
 **Theme:** Interfaces, invite parsing, and keypad dialing across the voice stack
 
-- [ ] `RMI-OMNIMEETCORE-001` Attendee session interfaces: `Joiner`, `Session`, optional audio, recorder, and participant interfaces, `Capabilities`, and states that separate connected from admitted
-- [ ] `RMI-OMNIMEETCORE-002` Package `dialin`: `DialInTarget` and keypad templates for Zoom, Google Meet, and Teams
+- [x] `RMI-OMNIMEETCORE-001` Attendee session interfaces: `Joiner`, `Session`, optional audio, recorder, and participant interfaces, `Capabilities`, and states that separate connected from admitted
+- [x] `RMI-OMNIMEETCORE-002` Package `dialin`: `DialInTarget` and keypad templates for Zoom, Google Meet, and Teams
   - Depends on: `RMI-OMNIMEETCORE-001`
-- [ ] `RMI-OMNIMEETCORE-003` Invite parser for Zoom, Google Meet, and Teams invitations and `.ics` files
+- [x] `RMI-OMNIMEETCORE-003` Invite parser for Zoom, Google Meet, and Teams invitations and `.ics` files
   - Depends on: `RMI-OMNIMEETCORE-002`
-- [ ] `RMI-OMNIVOICECORE-001` Keypad-digits option for outbound calls, and call options on `Gateway.MakeCall`
-- [ ] `RMI-OMNITWILIO-001` Send keypad digits on outbound calls with `<Play digits>` before the media stream
+- [x] `RMI-OMNIVOICECORE-001` Keypad-digits option for outbound calls, and call options on `Gateway.MakeCall`
+- [x] `RMI-OMNITWILIO-001` Send keypad digits on outbound calls with `<Play digits>` before the media stream
   - Depends on: `RMI-OMNIVOICECORE-001`
-- [ ] `RMI-OMNITELNYX-001` Send keypad digits on outbound calls through call control after answer
+- [x] `RMI-OMNITELNYX-001` Send keypad digits on outbound calls through call control after answer
   - Depends on: `RMI-OMNIVOICECORE-001`
 
 ## Phase 2 — Dial-in Attendance
 
 **Theme:** OmniAgent joins any meeting with dial-in and summarizes it
 
-- [ ] `RMI-OMNIMEETCORE-004` Phone dial-in joiner over the `omnivoice-core` call system, exposing mixed audio as one `KindSIP` participant
+- [ ] `RMI-OMNIVOICECORE-002` Audio pipeline mode and `AudioSession` interface: gateway sessions that hand raw call audio to the application instead of running STT, LLM, and TTS
+- [ ] `RMI-OMNITWILIO-002` Audio pipeline mode in the Twilio gateway: sessions implement `AudioSession` over Media Streams
+  - Depends on: `RMI-OMNIVOICECORE-002`
+- [ ] `RMI-OMNITELNYX-002` Audio pipeline mode in the Telnyx gateway: sessions implement `AudioSession` over Media Streaming
+  - Depends on: `RMI-OMNIVOICECORE-002`
+- [ ] `RMI-OMNIMEETCORE-004` Phone dial-in joiner over an audio-mode voice gateway, exposing the meeting's mixed audio as one `KindSIP` participant
   - Depends on: `RMI-OMNIMEETCORE-002`
-  - Depends on: `RMI-OMNITWILIO-001`
+  - Depends on: `RMI-OMNIVOICECORE-002`
+  - Depends on: `RMI-OMNITWILIO-002`
 - [ ] `RMI-OMNIMEETCORE-005` Simulated meeting phone menu for tests, and `examples/dialin`
   - Depends on: `RMI-OMNIMEETCORE-004`
 - [ ] `RMI-OMNIAGENT-411` Join meetings by phone from an invite: tool and CLI command, announce on admission, muted unless addressed, restricted tools, summary with decisions and action items

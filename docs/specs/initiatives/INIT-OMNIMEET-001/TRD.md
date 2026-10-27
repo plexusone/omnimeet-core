@@ -37,8 +37,15 @@ own.
 - `omni-twilio`: digits sent with `<Play digits>` before `<Connect><Stream>`,
   which avoids the 32-character limit of the `SendDigits` call parameter.
 - `omni-telnyx`: DTMF sent through call control after answer.
-- The joiner exposes the meeting's mixed audio as one `KindSIP` participant
-  and reports audio-only capabilities.
+- Gateways run a conversation pipeline (STT, LLM, TTS, or a realtime model)
+  on every call, which suits one-to-one calls but not meetings. An audio
+  pipeline mode in `omnivoice-core` (`PipelineModeAudio`) skips the pipeline;
+  its sessions implement `AudioSession`, which hands the call's audio to the
+  application and plays the application's audio into the call. `omni-twilio`
+  and `omni-telnyx` implement it over their media streams.
+- The joiner places the call with `gateway.MakeCallWithOptions` and the keypad
+  digits, takes the session's `AudioSession`, exposes the meeting's mixed audio
+  as one `KindSIP` participant, and reports audio-only capabilities.
 
 ## Browser Connector
 
