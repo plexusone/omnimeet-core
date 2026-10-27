@@ -147,6 +147,14 @@ func TestSkillName(t *testing.T) {
 	}
 }
 
+func TestSkillVersion(t *testing.T) {
+	skill := New(nil, Config{})
+
+	if v := skill.Version(); v != "" {
+		t.Errorf("expected unversioned skill (empty version), got %q", v)
+	}
+}
+
 func TestSkillEvents(t *testing.T) {
 	skill := New(nil, Config{})
 

@@ -111,6 +111,12 @@ func (s *MeetingSkill) Description() string {
 	return "Manage real-time meetings and video conferences. Create meetings, invite participants, join as an AI agent, and interact via voice."
 }
 
+// Version returns the skill version. The skill is versioned with the
+// omnimeet-core module, so it reports itself as unversioned.
+func (s *MeetingSkill) Version() string {
+	return ""
+}
+
 // Tools returns the skill's tools.
 func (s *MeetingSkill) Tools() []skill.Tool {
 	return []skill.Tool{
