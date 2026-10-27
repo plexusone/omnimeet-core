@@ -24,16 +24,16 @@ Commits implementing an item carry `Refs: RMI-<REPOSLUG>-<NNN>`.
 
 **Theme:** OmniAgent joins any meeting with dial-in and summarizes it
 
-- [ ] `RMI-OMNIVOICECORE-002` Audio pipeline mode and `AudioSession` interface: gateway sessions that hand raw call audio to the application instead of running STT, LLM, and TTS
-- [ ] `RMI-OMNITWILIO-002` Audio pipeline mode in the Twilio gateway: sessions implement `AudioSession` over Media Streams
+- [x] `RMI-OMNIVOICECORE-002` Audio pipeline mode and `AudioSession` interface: gateway sessions that hand raw call audio to the application instead of running STT, LLM, and TTS
+- [x] `RMI-OMNITWILIO-002` Audio pipeline mode in the Twilio gateway: sessions implement `AudioSession` over Media Streams
   - Depends on: `RMI-OMNIVOICECORE-002`
-- [ ] `RMI-OMNITELNYX-002` Audio pipeline mode in the Telnyx gateway: sessions implement `AudioSession` over Media Streaming
+- [x] `RMI-OMNITELNYX-002` Audio pipeline mode in the Telnyx gateway: sessions implement `AudioSession` over Media Streaming
   - Depends on: `RMI-OMNIVOICECORE-002`
-- [ ] `RMI-OMNIMEETCORE-004` Phone dial-in joiner over an audio-mode voice gateway, exposing the meeting's mixed audio as one `KindSIP` participant
+- [x] `RMI-OMNIMEETCORE-004` Phone dial-in joiner over an audio-mode voice gateway, exposing the meeting's mixed audio as one `KindSIP` participant
   - Depends on: `RMI-OMNIMEETCORE-002`
   - Depends on: `RMI-OMNIVOICECORE-002`
   - Depends on: `RMI-OMNITWILIO-002`
-- [ ] `RMI-OMNIMEETCORE-005` Simulated meeting phone menu for tests, and `examples/dialin`
+- [x] `RMI-OMNIMEETCORE-005` Simulated meeting phone menu for tests, and `examples/dialin`
   - Depends on: `RMI-OMNIMEETCORE-004`
 - [ ] `RMI-OMNIAGENT-411` Join meetings by phone from an invite: tool and CLI command, announce on admission, muted unless addressed, restricted tools, summary with decisions and action items
   - Depends on: `RMI-OMNIMEETCORE-003`
