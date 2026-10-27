@@ -35,9 +35,14 @@ Commits implementing an item carry `Refs: RMI-<REPOSLUG>-<NNN>`.
   - Depends on: `RMI-OMNITWILIO-002`
 - [x] `RMI-OMNIMEETCORE-005` Simulated meeting phone menu for tests, and `examples/dialin`
   - Depends on: `RMI-OMNIMEETCORE-004`
+- [ ] `RMI-OMNITWILIO-003` Gateway sessions hang up the call with `Hangup`, so leaving a meeting ends the call
+  - Depends on: `RMI-OMNITWILIO-002`
+- [ ] `RMI-OMNITELNYX-003` Gateway sessions hang up the call with `Hangup`, so leaving a meeting ends the call instead of leaving it connected without audio
+  - Depends on: `RMI-OMNITELNYX-002`
 - [ ] `RMI-OMNIAGENT-411` Join meetings by phone from an invite: tool and CLI command, announce on admission, muted unless addressed, restricted tools, summary with decisions and action items
   - Depends on: `RMI-OMNIMEETCORE-003`
   - Depends on: `RMI-OMNIMEETCORE-004`
+  - Depends on: `RMI-OMNITWILIO-003`
 
 ## Phase 3 — Browser Connector
 
