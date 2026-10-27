@@ -16,6 +16,7 @@ ADRs document significant architectural decisions made during the design and dev
 | [006](006-event-model.md) | Event-Driven Architecture | Accepted | 2026-07-03 |
 | [007](007-omnivoice-integration.md) | OmniVoice Integration Strategy | Accepted | 2026-07-03 |
 | [008](008-frontend-sdk.md) | Frontend SDK Architecture | Proposed | 2026-07-03 |
+| [009](009-dial-in-first.md) | Dial-in First for External Meetings | Accepted | 2026-10-27 |
 
 ## ADR Status Definitions
 
