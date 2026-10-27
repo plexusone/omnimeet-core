@@ -22,7 +22,7 @@ Commits implementing an item carry `Refs: RMI-<REPOSLUG>-<NNN>`.
 
 ## Phase 2 — Dial-in Attendance
 
-**Theme:** OmniAgent joins any meeting with dial-in and summarizes it
+**Theme:** Calls hand raw audio to the application, and OmniMeet joins any meeting with dial-in
 
 - [x] `RMI-OMNIVOICECORE-002` Audio pipeline mode and `AudioSession` interface: gateway sessions that hand raw call audio to the application instead of running STT, LLM, and TTS
 - [x] `RMI-OMNITWILIO-002` Audio pipeline mode in the Twilio gateway: sessions implement `AudioSession` over Media Streams
@@ -35,16 +35,27 @@ Commits implementing an item carry `Refs: RMI-<REPOSLUG>-<NNN>`.
   - Depends on: `RMI-OMNITWILIO-002`
 - [x] `RMI-OMNIMEETCORE-005` Simulated meeting phone menu for tests, and `examples/dialin`
   - Depends on: `RMI-OMNIMEETCORE-004`
-- [ ] `RMI-OMNITWILIO-003` Gateway sessions hang up the call with `Hangup`, so leaving a meeting ends the call
+- [x] `RMI-OMNITWILIO-003` Gateway sessions hang up the call with `Hangup`, so leaving a meeting ends the call
   - Depends on: `RMI-OMNITWILIO-002`
-- [ ] `RMI-OMNITELNYX-003` Gateway sessions hang up the call with `Hangup`, so leaving a meeting ends the call instead of leaving it connected without audio
+- [x] `RMI-OMNITELNYX-003` Gateway sessions hang up the call with `Hangup`, so leaving a meeting ends the call instead of leaving it connected without audio
   - Depends on: `RMI-OMNITELNYX-002`
-- [ ] `RMI-OMNIAGENT-411` Join meetings by phone from an invite: tool and CLI command, announce on admission, muted unless addressed, restricted tools, summary with decisions and action items
+
+## Phase 3 — OmniAgent Meeting Attendance
+
+**Theme:** OmniAgent attends meetings by phone, takes notes, and answers when addressed
+
+- [ ] `RMI-OMNIAGENT-411` Meeting attendant library (`meeting` package): announce once on admission, transcribe the meeting live, and summarize it with decisions and action items at the end
   - Depends on: `RMI-OMNIMEETCORE-003`
   - Depends on: `RMI-OMNIMEETCORE-004`
   - Depends on: `RMI-OMNITWILIO-003`
+- [ ] `RMI-OMNIAGENT-413` Answer when addressed: detect the agent's name in the transcript and reply by voice with a restricted tool set, treating meeting speech as untrusted input
+  - Depends on: `RMI-OMNIAGENT-411`
+- [ ] `RMI-OMNIAGENT-414` `omniagent meeting join` CLI command: join from an invite or `.ics` file, print the live transcript, and write the transcript and summary
+  - Depends on: `RMI-OMNIAGENT-411`
+- [ ] `RMI-OMNIAGENT-415` Agent tools and gateway configuration for meetings: join by phone, status, leave, and get summary from a running gateway
+  - Depends on: `RMI-OMNIAGENT-411`
 
-## Phase 3 — Browser Connector
+## Phase 4 — Browser Connector
 
 **Theme:** Named, visible participant in Google Meet and the Zoom web client
 
@@ -62,7 +73,7 @@ Commits implementing an item carry `Refs: RMI-<REPOSLUG>-<NNN>`.
   - Depends on: `RMI-OMNIAGENT-411`
   - Depends on: `RMI-OMNIMEETCORE-008`
 
-## Phase 4 — Zoom Meeting SDK
+## Phase 5 — Zoom Meeting SDK
 
 **Theme:** Native Zoom attendance, only if the Zoom web-client adapter proves unreliable
 
