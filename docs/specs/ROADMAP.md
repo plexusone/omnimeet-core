@@ -52,6 +52,7 @@ OmniAgent
 6. **Agent participation** — AI agents join meetings and interact via OmniVoice/OmniLLM
 7. **Transcript capture** — Real-time transcription via OmniVoice STT
 8. **Recording hooks** — Start/stop recording via provider APIs
+9. **Attend external meetings** — Join Zoom, Google Meet, and Teams meetings hosted by others, starting with phone dial-in (see [Phase 3](#phase-3-dial-in-attendance))
 
 ### V1.5 Goals
 
@@ -65,7 +66,6 @@ OmniAgent
 1. **Scheduling** — Calendar integration (Google, Outlook, CalDAV)
 2. **Recurring meetings** — Series management
 3. **Breakout rooms** — Sub-meetings within larger meetings
-4. **Meeting bots** — Attend existing Zoom/Teams/Meet meetings as a bot
 
 ---
 
@@ -79,7 +79,7 @@ The following are explicitly out of scope for V1:
 - Breakout rooms
 - Whiteboards / collaborative documents
 - Deep video understanding / computer vision
-- Full Zoom/Teams SaaS bot attendance (V2)
+- Native Teams and Webex connectors (Teams and Webex meetings are attended by dial-in)
 - WebRTC implementation details (delegated to providers)
 
 ---
@@ -337,6 +337,20 @@ const (
 - Meeting SDK for bot attendance
 - OAuth2 for authentication
 
+### Attending External Meetings
+
+The providers above host meetings the application controls. Attending a meeting hosted by someone else on Zoom, Google Meet, Teams, or Webex is a different problem: there is no join token to mint, and native bot access varies by platform. OmniMeet attends external meetings through connectors, added in this order (see [ADR-009](../adr/009-dial-in-first.md)):
+
+| Order | Connector | Platforms | What it provides |
+|-------|-----------|-----------|------------------|
+| 1 | **Phone dial-in** | Any meeting with a dial-in number | Mixed audio in and out; no display name or speaker names; no platform app registration |
+| 2 | **Browser** | Google Meet, then the Zoom web client | Visible participant with a display name; speaker names from live captions |
+| 3 | **Zoom Meeting SDK** | Zoom | Only if the Zoom web client proves unreliable in the browser connector |
+
+Teams and Webex are attended by dial-in only. A native connector is reconsidered if either becomes common enough to need speaker names.
+
+Every connector implements the same attendee session interface and reports its capabilities, so agents adapt to what the connection supports (for example, speaking but not reading chat).
+
 ---
 
 ## Integration with PlexusOne Ecosystem
@@ -495,7 +509,27 @@ memory.Store(ctx, omnimemory.StoreRequest{
 
 **Completed:** 2026-07-03
 
-### Phase 3: Daily Provider (V0.3)
+Phases 3–5 below are tracked as initiative `INIT-OMNIMEET-001`, which also covers work in `omnivoice-core`, `omni-twilio`, `omni-telnyx`, and `omniagent`. Its [ROADMAP](initiatives/INIT-OMNIMEET-001/ROADMAP.md) lists the roadmap items and dependencies.
+
+### Phase 3: Dial-in Attendance
+
+**Goal:** Join any meeting that offers phone dial-in, audio only, with no platform app registration
+
+**Deliverables:** attendee session interfaces, the `dialin` package with keypad templates for Zoom, Google Meet, and Teams, an invite parser, the phone dial-in joiner, and a simulated meeting for tests
+
+### Phase 4: Browser Connector
+
+**Goal:** Join Google Meet and the Zoom web client as a visible participant with a display name
+
+**Deliverables:** browser joiner core in a separate provider module, speaker-attributed transcript events, the Google Meet adapter, and the Zoom web-client adapter
+
+### Phase 5: Zoom Meeting SDK
+
+**Goal:** Native Zoom attendance, built only if the Zoom web-client adapter proves unreliable
+
+**Deliverables:** Zoom Meeting SDK joiner and on-behalf-of authorization for other accounts' meetings
+
+### Phase 6: Daily Provider (V0.3)
 
 **Goal:** Second provider validates abstraction
 
@@ -518,7 +552,7 @@ memory.Store(ctx, omnimemory.StoreRequest{
 **Dependencies:**
 - Daily REST API
 
-### Phase 4: Recording & Transcripts (V0.4)
+### Phase 7: Recording & Transcripts (V0.4)
 
 **Goal:** Recording and transcript capture
 
@@ -535,7 +569,7 @@ memory.Store(ctx, omnimemory.StoreRequest{
 - [ ] LiveKit Egress integration
 - [ ] Daily recording API integration
 
-### Phase 5: Frontend SDK (V0.5)
+### Phase 8: Frontend SDK (V0.5)
 
 **Goal:** TypeScript/React SDK for browser participants
 
@@ -552,7 +586,7 @@ memory.Store(ctx, omnimemory.StoreRequest{
   - [ ] Daily React integration
 - [ ] OmniAgent embedded UI integration
 
-### Phase 6: Bundle & Polish (V1.0)
+### Phase 9: Bundle & Polish (V1.0)
 
 **Goal:** Production-ready release
 
@@ -581,6 +615,7 @@ Architecture Decision Records are stored in `/docs/adr/`.
 | [ADR-006](../adr/006-event-model.md) | Event-Driven Architecture | Accepted |
 | [ADR-007](../adr/007-omnivoice-integration.md) | OmniVoice Integration Strategy | Accepted |
 | [ADR-008](../adr/008-frontend-sdk.md) | Frontend SDK Architecture | Proposed |
+| [ADR-009](../adr/009-dial-in-first.md) | Dial-in First for External Meetings | Accepted |
 
 ---
 

@@ -3,7 +3,7 @@
 The Daily provider implements OmniMeet interfaces for [Daily](https://www.daily.co/), an easy-to-use video API platform.
 
 !!! warning "Coming Soon"
-    The Daily provider is planned for Phase 3 and is not yet implemented.
+    The Daily provider is planned for Phase 6 and is not yet implemented.
 
 ## Planned Installation
 
