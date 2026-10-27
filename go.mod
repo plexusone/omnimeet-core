@@ -4,7 +4,7 @@ go 1.26.4
 
 require (
 	github.com/plexusone/omniskill v0.12.1
-	github.com/plexusone/omnivoice-core v0.16.1
+	github.com/plexusone/omnivoice-core v0.17.0
 )
 
 require (
