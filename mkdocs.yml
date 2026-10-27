@@ -6,6 +6,9 @@ site_url: https://plexusone.github.io/omnimeet-core/
 repo_name: plexusone/omnimeet-core
 repo_url: https://github.com/plexusone/omnimeet-core
 
+exclude_docs: |
+  /README.md
+
 theme:
   name: material
   custom_dir: docs/overrides

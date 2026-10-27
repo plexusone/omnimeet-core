@@ -647,7 +647,7 @@ Architecture Decision Records are stored in `/docs/adr/`.
 
 ## References
 
-- [IDEATION_CHAT.md](../../IDEATION_CHAT.md) - Original ideation discussion
+- [IDEATION_CHAT.md](https://github.com/plexusone/omnimeet-core/blob/main/IDEATION_CHAT.md) - Original ideation discussion
 - [LiveKit Documentation](https://docs.livekit.io/)
 - [Daily Documentation](https://docs.daily.co/)
 - [PlexusOne OmniVoice-Core](https://github.com/plexusone/omnivoice-core)

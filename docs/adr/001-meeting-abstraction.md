@@ -73,5 +73,5 @@ Considered for its future-proof scope, but rejected because it doesn't immediate
 
 ## References
 
-- [IDEATION_CHAT.md](../../IDEATION_CHAT.md) — Original naming discussion
+- [IDEATION_CHAT.md](https://github.com/plexusone/omnimeet-core/blob/main/IDEATION_CHAT.md) — Original naming discussion
 - [LiveKit Rooms Documentation](https://docs.livekit.io/intro/basics/rooms-participants-tracks/)
