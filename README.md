@@ -90,6 +90,31 @@ func main() {
 | `voice` | Voice agent types |
 | `recording` | Recording state |
 | `transcript` | Transcription types |
+| `attendee` | Sessions for attending meetings hosted by others |
+| `dialin` | Dial-in numbers and keypad sequences for Zoom, Google Meet, and Teams |
+| `invite` | Parse meeting invitations and `.ics` files |
+
+## Attending External Meetings
+
+Agents can also attend meetings hosted by others on Zoom, Google Meet, and Microsoft Teams. Phone dial-in works with any meeting that lists a dial-in number: parse the invite, pick a number, and enter the meeting ID and passcode as keypad tones.
+
+```go
+jt, err := invite.Parse(invitationText)
+if err != nil {
+    return err
+}
+target, err := dialin.Choose(jt, "US")
+if err != nil {
+    return err // dialin.ErrNoDialIn when the meeting has no phone option
+}
+digits, err := dialin.DialString(target)
+if err != nil {
+    return err
+}
+call, err := calls.MakeCall(ctx, target.Number, callsystem.WithSendDigits(digits))
+```
+
+`callsystem` is `github.com/plexusone/omnivoice-core/callsystem`. See [ADR-009](docs/adr/009-dial-in-first.md) for the connector plan.
 
 ## Provider Implementations
 
