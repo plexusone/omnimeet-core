@@ -36,6 +36,8 @@
         { "description": "Initiative specs for external meeting attendance", "commit": "b27d81b" },
         { "description": "External meeting attendance phases in the roadmap", "commit": "b0e4f3d" },
         { "description": "README section on joining meetings with the dial-in joiner", "commit": "187470d" },
+        { "description": "Fix strict MkDocs build warnings", "commit": "c42577e" },
+        { "description": "Initiative roadmap: gateway hangup items and a separate OmniAgent meeting attendance phase", "commit": "7b42109" },
         { "description": "v0.2.0 release notes at `docs/releases/v0.2.0.md`" }
       ],
       "dependencies": [
