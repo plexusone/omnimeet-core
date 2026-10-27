@@ -55,6 +55,15 @@ func WithTiming(timing Timing) JoinerOption {
 	}
 }
 
+// WithKeyDuration sets the time allowed for each key tone when estimating
+// how long the keypad sequence takes, and so when the session reports
+// StateAdmitted. The default is 200 milliseconds.
+func WithKeyDuration(d time.Duration) JoinerOption {
+	return func(j *Joiner) {
+		j.keyDuration = d
+	}
+}
+
 // NewJoiner returns a Joiner that places calls through gw.
 func NewJoiner(gw gateway.Gateway, opts ...JoinerOption) *Joiner {
 	j := &Joiner{gw: gw, timing: DefaultTiming, keyDuration: defaultKeyDuration}

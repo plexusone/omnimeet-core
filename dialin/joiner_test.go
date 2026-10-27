@@ -141,9 +141,7 @@ func meetTarget() attendee.JoinTarget {
 }
 
 func newTestJoiner(gw gateway.Gateway) *Joiner {
-	j := NewJoiner(gw, WithCountry("US"), WithTiming(testTiming))
-	j.keyDuration = 0
-	return j
+	return NewJoiner(gw, WithCountry("US"), WithTiming(testTiming), WithKeyDuration(0))
 }
 
 // waitState waits for the session to report want.
