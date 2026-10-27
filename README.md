@@ -91,30 +91,36 @@ func main() {
 | `recording` | Recording state |
 | `transcript` | Transcription types |
 | `attendee` | Sessions for attending meetings hosted by others |
-| `dialin` | Dial-in numbers and keypad sequences for Zoom, Google Meet, and Teams |
+| `dialin` | Join meetings by phone: dial-in numbers, keypad sequences, and the dial-in joiner |
+| `dialin/dialintest` | Simulated meetings for testing dial-in |
 | `invite` | Parse meeting invitations and `.ics` files |
 
 ## Attending External Meetings
 
-Agents can also attend meetings hosted by others on Zoom, Google Meet, and Microsoft Teams. Phone dial-in works with any meeting that lists a dial-in number: parse the invite, pick a number, and enter the meeting ID and passcode as keypad tones.
+Agents can also attend meetings hosted by others on Zoom, Google Meet, and Microsoft Teams. Phone dial-in works with any meeting that lists a dial-in number: parse the invite, and the dial-in joiner calls the meeting, enters the meeting ID and passcode as keypad tones, and hands the agent the meeting's audio.
 
 ```go
-jt, err := invite.Parse(invitationText)
+jt, err := invite.Parse(invitationText) // or invite.ParseICS for .ics files
 if err != nil {
     return err
 }
-target, err := dialin.Choose(jt, "US")
+
+// gw is an omnivoice-core voice gateway in audio mode, for example from
+// omni-twilio or omni-telnyx with Mode: gateway.PipelineModeAudio.
+joiner := dialin.NewJoiner(gw, dialin.WithCountry("US"))
+sess, err := joiner.Join(ctx, jt)
 if err != nil {
     return err // dialin.ErrNoDialIn when the meeting has no phone option
 }
-digits, err := dialin.DialString(target)
-if err != nil {
-    return err
-}
-call, err := calls.MakeCall(ctx, target.Number, callsystem.WithSendDigits(digits))
+
+audio := sess.(attendee.AudioReceiver).ReceiveAudio() // mixed meeting audio
+speaker := sess.(attendee.AudioSender).SendAudio()    // played into the meeting
+defer sess.Leave(ctx)
 ```
 
-`callsystem` is `github.com/plexusone/omnivoice-core/callsystem`. See [ADR-009](docs/adr/009-dial-in-first.md) for the connector plan.
+The session reports its state through `Events()`: joining, connected, admitted, and left or ended. Phone dial-in cannot see whether the meeting admitted the caller, so the session reports admitted once the keypad sequence has had time to finish.
+
+For tests, `dialin/dialintest` simulates meetings with Zoom, Google Meet, and Teams phone menus, so code can join, listen, speak, and leave without a real meeting. [examples/dialin](examples/dialin/main.go) runs the whole flow against a simulated meeting. See [ADR-009](docs/adr/009-dial-in-first.md) for the connector plan.
 
 ## Provider Implementations
 
