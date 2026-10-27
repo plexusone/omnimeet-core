@@ -2,9 +2,10 @@ package dialin
 
 import (
 	"errors"
-	"strings"
 	"testing"
 	"time"
+
+	"github.com/plexusone/omnivoice-core/callsystem"
 
 	"github.com/plexusone/omnimeet-core/attendee"
 )
@@ -117,8 +118,8 @@ func TestDialString(t *testing.T) {
 			if got != tt.want {
 				t.Fatalf("DialString() = %q, want %q", got, tt.want)
 			}
-			if strings.Trim(got, "0123456789*#wW") != "" {
-				t.Fatalf("DialString() = %q has characters outside dial-string notation", got)
+			if err := callsystem.ValidateSendDigits(got); err != nil {
+				t.Fatalf("dial string not accepted by callsystem.WithSendDigits: %v", err)
 			}
 		})
 	}
