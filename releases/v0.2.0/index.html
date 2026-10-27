@@ -1980,7 +1980,7 @@
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nx">audio</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">sess</span><span class="p">.(</span><span class="nx">attendee</span><span class="p">.</span><span class="nx">AudioReceiver</span><span class="p">).</span><span class="nx">ReceiveAudio</span><span class="p">()</span>
 </code></pre></div>
-<p>Phone dial-in cannot see whether the meeting admitted the caller. The session reports admitted once the call is connected and the keypad sequence has had time to finish. <code>Leave</code> hangs up when the gateway session supports it and closes the session.</p>
+<p>Phone dial-in cannot see whether the meeting admitted the caller. The session reports admitted once the call is connected and the keypad sequence has had time to finish. <code>Leave</code> hangs up when the gateway session supports it (omni-twilio v0.12.0 and omni-telnyx v0.7.0 do) and closes the session.</p>
 <h3 id="testing-dialindialintest">Testing (<code>dialin/dialintest</code>)<a class="headerlink" href="#testing-dialindialintest" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Gateway</strong> - a voice gateway in audio mode whose calls reach simulated meetings</li>
@@ -2024,7 +2024,7 @@
 </tr>
 </tbody>
 </table>
-<p>The dial-in joiner needs a voice gateway in audio mode: omni-twilio v0.11.0 or omni-telnyx v0.6.0 or later.</p>
+<p>The dial-in joiner needs a voice gateway in audio mode: omni-twilio v0.11.0 or omni-telnyx v0.6.0 or later. Use omni-twilio v0.12.0 or omni-telnyx v0.7.0 so that leaving a meeting hangs up the call; with earlier versions <code>Leave</code> only closes the media stream, which leaves a Telnyx call connected.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>go<span class="w"> </span>get<span class="w"> </span>github.com/plexusone/omnimeet-core@v0.2.0
 </code></pre></div>
