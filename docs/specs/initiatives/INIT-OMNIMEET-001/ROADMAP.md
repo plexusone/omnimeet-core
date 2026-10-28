@@ -44,7 +44,7 @@ Commits implementing an item carry `Refs: RMI-<REPOSLUG>-<NNN>`.
 
 **Theme:** OmniAgent attends meetings by phone, takes notes, and answers when addressed
 
-- [ ] `RMI-OMNIAGENT-411` Meeting attendant library (`meeting` package): announce once on admission, transcribe the meeting live, and summarize it with decisions and action items at the end
+- [x] `RMI-OMNIAGENT-411` Meeting attendant library (`meeting` package): announce once on admission, transcribe the meeting live, and summarize it with decisions and action items at the end
   - Depends on: `RMI-OMNIMEETCORE-003`
   - Depends on: `RMI-OMNIMEETCORE-004`
   - Depends on: `RMI-OMNITWILIO-003`
