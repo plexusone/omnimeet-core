@@ -50,7 +50,7 @@ Commits implementing an item carry `Refs: RMI-<REPOSLUG>-<NNN>`.
   - Depends on: `RMI-OMNITWILIO-003`
 - [ ] `RMI-OMNIAGENT-413` Answer when addressed: detect the agent's name in the transcript and reply by voice with a restricted tool set, treating meeting speech as untrusted input
   - Depends on: `RMI-OMNIAGENT-411`
-- [ ] `RMI-OMNIAGENT-414` `omniagent meeting join` CLI command: join from an invite or `.ics` file, print the live transcript, and write the transcript and summary
+- [x] `RMI-OMNIAGENT-414` `omniagent meeting join` CLI command: join from an invite or `.ics` file, print the live transcript, and write the transcript and summary
   - Depends on: `RMI-OMNIAGENT-411`
 - [ ] `RMI-OMNIAGENT-415` Agent tools and gateway configuration for meetings: join by phone, status, leave, and get summary from a running gateway
   - Depends on: `RMI-OMNIAGENT-411`
