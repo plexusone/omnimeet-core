@@ -203,6 +203,24 @@ if session != nil && session.Agent != nil {
 }
 ```
 
+## Attending Meetings Hosted by Others
+
+The skill manages meetings on providers you run, such as LiveKit. To attend a
+Zoom, Google Meet, or Microsoft Teams meeting someone else hosts, OmniAgent
+uses the `invite` and `dialin` packages to dial in by phone:
+
+```bash
+omniagent meeting join --invite meeting.ics --ngrok
+```
+
+OmniAgent's `meeting` package does the attending: it announces the agent,
+transcribes the meeting through a streaming speech-to-text provider, and
+summarizes it with decisions and action items. It works with any
+`attendee.Session`, so a future browser connector can use it unchanged. See
+OmniAgent's
+[Attending Meetings by Phone](https://github.com/plexusone/omniagent/blob/main/docs/guides/meetings.md)
+guide.
+
 ## Best Practices
 
 1. **Set meaningful defaults** - Configure `DefaultAgentName` appropriately

@@ -76,7 +76,7 @@ OmniAgent (orchestration)
 |-------|--------|-------------|
 | Phase 1 (V0.1) | Complete | Core interfaces + LiveKit provider |
 | Phase 2 (V0.2) | Complete | Agent participation + Voice |
-| Phase 3 | Planned | Dial-in attendance for external meetings |
+| Phase 3 | In progress | Dial-in attendance for external meetings: joining, transcripts, and notes shipped; answering when addressed is next |
 | Phase 4 | Planned | Browser connector (Google Meet, Zoom web client) |
 | Phase 5 | Conditional | Zoom Meeting SDK, if the web client proves unreliable |
 | Phase 6 (V0.3) | Planned | Daily provider |

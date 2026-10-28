@@ -122,6 +122,8 @@ The session reports its state through `Events()`: joining, connected, admitted, 
 
 For tests, `dialin/dialintest` simulates meetings with Zoom, Google Meet, and Teams phone menus, so code can join, listen, speak, and leave without a real meeting. [examples/dialin](examples/dialin/main.go) runs the whole flow against a simulated meeting. See [ADR-009](docs/adr/009-dial-in-first.md) for the connector plan.
 
+To attend from the command line, [OmniAgent](https://github.com/plexusone/omniagent) builds on these packages: `omniagent meeting join --invite meeting.ics` dials in, prints a live transcript, and writes meeting notes with a summary. See its [Attending Meetings by Phone](https://github.com/plexusone/omniagent/blob/main/docs/guides/meetings.md) guide.
+
 ## Provider Implementations
 
 | Provider | Package | Status |
